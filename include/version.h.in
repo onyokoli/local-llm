@@ -1,0 +1,41 @@
+#ifndef LOCALLLM_VERSION_H
+#define LOCALLLM_VERSION_H
+
+namespace localllm {
+
+// Version information
+constexpr const char* VERSION = "@PROJECT_VERSION@";
+constexpr const char* VERSION_MAJOR = "@PROJECT_VERSION_MAJOR@";
+constexpr const char* VERSION_MINOR = "@PROJECT_VERSION_MINOR@";
+constexpr const char* VERSION_PATCH = "@PROJECT_VERSION_PATCH@";
+
+// Build information
+constexpr const char* BUILD_TYPE = "@CMAKE_BUILD_TYPE@";
+constexpr const char* BUILD_DATE = __DATE__;
+constexpr const char* BUILD_TIME = __TIME__;
+
+// Feature flags
+constexpr bool CUDA_SUPPORTED =
+#ifdef LLAMA_CUDA
+    true;
+#else
+    false;
+#endif
+
+constexpr bool OPENMP_SUPPORTED =
+#ifdef LLAMA_OPENMP
+    true;
+#else
+    false;
+#endif
+
+constexpr bool BLAS_SUPPORTED =
+#ifdef LLAMA_BLAS
+    true;
+#else
+    false;
+#endif
+
+} // namespace localllm
+
+#endif // LOCALLLM_VERSION_H
